@@ -1,4 +1,5 @@
 from app.api.routes.admin_ping import router as admin_ping_router
+from app.api.routes.admin_stores import router as admin_stores_router
 from app.api.routes.auth import router as auth_router
 from fastapi import Depends, FastAPI
 from sqlalchemy import text
@@ -26,3 +27,4 @@ def db_health(db=Depends(get_db)):
 app.include_router(stores_router)
 app.include_router(auth_router)
 app.include_router(admin_ping_router)
+app.include_router(admin_stores_router)
