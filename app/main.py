@@ -1,9 +1,12 @@
 from fastapi import Depends, FastAPI
 from sqlalchemy import text
 
+from app.api.routes.stores import router as stores_router
 from app.db.deps import get_db
+from app.middlewares.rate_limit import RateLimitMiddleware
 
 app = FastAPI(title="Store Locator Service")
+app.add_middleware(RateLimitMiddleware, per_minute=10, per_hour=100)
 
 @app.get("/health")
 def health_check():
@@ -16,3 +19,6 @@ def db_health(db=Depends(get_db)):
         return {"status": "OK"}
     except Exception as e:
         return {"status": "ERROR", "message": str(e)}
+
+
+app.include_router(stores_router)
