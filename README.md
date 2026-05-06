@@ -63,6 +63,8 @@ docs/                 repository audit and delivery notes
    cp .env.example .env
    ```
 
+   `DEV_SEED_PASSWORD` is used only for local seeded users. Change it before sharing any non-local environment.
+
 3. Start PostgreSQL:
 
    ```bash
@@ -107,4 +109,3 @@ docs/                 repository audit and delivery notes
 ## Notes
 
 - `requirement.txt` is kept as a compatibility wrapper and points to `requirements.txt`.
-

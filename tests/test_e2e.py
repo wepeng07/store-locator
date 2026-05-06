@@ -1,3 +1,4 @@
+import os
 import io
 import json
 import time
@@ -7,6 +8,7 @@ from fastapi.testclient import TestClient
 from app.main import app 
 
 client = TestClient(app)
+DEV_SEED_PASSWORD = os.environ["DEV_SEED_PASSWORD"]
 
 
 def login(email: str, password: str) -> str:
@@ -23,12 +25,12 @@ def auth_headers(token: str) -> dict:
 
 @pytest.fixture(scope="session")
 def admin_token():
-    return login("admin@company.com", "TestPassword123!")
+    return login("admin@company.com", DEV_SEED_PASSWORD)
 
 
 @pytest.fixture(scope="session")
 def viewer_token():
-    return login("viewer@company.com", "TestPassword123!")
+    return login("viewer@company.com", DEV_SEED_PASSWORD)
 
 
 # -------------------------
@@ -111,7 +113,7 @@ def test_rbac_viewer_forbidden_on_admin_write(viewer_token):
 
 
 def test_admin_create_patch_soft_delete_store(admin_token):
-    store_id = "S0999"
+    store_id = f"S{(int(time.time() * 1000) % 9000) + 1000:04d}"
     create_payload = {
         "store_id": store_id,
         "name": "Pytest Store 999",

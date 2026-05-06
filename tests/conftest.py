@@ -18,3 +18,4 @@ except Exception:
 #    如果你的 .env 已经有值，这里不会覆盖（setdefault）
 os.environ.setdefault("DATABASE_URL", "postgresql+psycopg2://postgres:postgres@localhost:5432/store_locator")
 os.environ.setdefault("JWT_SECRET_KEY", "test-secret-key-for-pytest")
+os.environ.setdefault("DEV_SEED_PASSWORD", "dev-password-change-me")

@@ -63,6 +63,8 @@ docs/                 额外文档
    cp .env.example .env
    ```
 
+   `DEV_SEED_PASSWORD` 仅用于本地种子用户。只要不是纯本地环境，就应该先改掉它。
+
 3. 启动 PostgreSQL：
 
    ```bash

@@ -1,3 +1,5 @@
+import os
+
 from _bootstrap import add_project_root
 
 add_project_root()
@@ -6,7 +8,7 @@ from app.core.passwords import hash_password
 from app.db.session import SessionLocal
 from app.models.user import User
 
-DEFAULT_PW = "TestPassword123!"
+DEFAULT_DEV_PW = os.getenv("DEV_SEED_PASSWORD", "dev-password-change-me")
 
 def run():
     db = SessionLocal()
@@ -16,7 +18,7 @@ def run():
             User(
                 user_id="U001",
                 email="admin@company.com",
-                password_hash=hash_password(DEFAULT_PW),
+                password_hash=hash_password(DEFAULT_DEV_PW),
                 role="admin",
                 status="active",
                 must_change_password=True,
@@ -24,7 +26,7 @@ def run():
             User(
                 user_id="U002",
                 email="marketer@company.com",
-                password_hash=hash_password(DEFAULT_PW),
+                password_hash=hash_password(DEFAULT_DEV_PW),
                 role="marketer",
                 status="active",
                 must_change_password=True,
@@ -32,7 +34,7 @@ def run():
             User(
                 user_id="U003",
                 email="viewer@company.com",
-                password_hash=hash_password(DEFAULT_PW),
+                password_hash=hash_password(DEFAULT_DEV_PW),
                 role="viewer",
                 status="active",
                 must_change_password=True,
