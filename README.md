@@ -2,6 +2,8 @@
 
 Store Locator Service is a FastAPI backend for store discovery, role-based store administration, and bulk store onboarding.
 
+Chinese version: [README.zh-CN.md](README.zh-CN.md)
+
 ## Why this project matters
 
 - Improve store conversion by helping customers find the closest eligible store quickly.
@@ -9,7 +11,7 @@ Store Locator Service is a FastAPI backend for store discovery, role-based store
 - Reduce operations overhead with admin CRUD APIs, CSV onboarding, and role-based access control.
 - Create a foundation for future store intelligence features such as SLA tracking, regional coverage, and service availability analytics.
 
-## Current capabilities
+## Features
 
 - Public store search by address, postal code, or coordinates
 - Radius, service, store type, and `open_now` filtering
@@ -102,8 +104,7 @@ docs/                 repository audit and delivery notes
 - `DELETE /api/admin/stores/{store_id}`
 - `POST /api/admin/stores/import`
 
-## Additional notes
+## Notes
 
-- Chinese repository audit and upload plan: [`docs/repository-audit.zh-CN.md`](docs/repository-audit.zh-CN.md)
-- Legacy `requirement.txt` is kept as a compatibility wrapper and points to `requirements.txt`.
+- `requirement.txt` is kept as a compatibility wrapper and points to `requirements.txt`.
 
