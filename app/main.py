@@ -1,3 +1,4 @@
+from app.api.routes.admin_import import router as admin_import_router
 from app.api.routes.admin_ping import router as admin_ping_router
 from app.api.routes.admin_stores import router as admin_stores_router
 from app.api.routes.auth import router as auth_router
@@ -28,3 +29,4 @@ app.include_router(stores_router)
 app.include_router(auth_router)
 app.include_router(admin_ping_router)
 app.include_router(admin_stores_router)
+app.include_router(admin_import_router)
